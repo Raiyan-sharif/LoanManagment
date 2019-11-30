@@ -2,11 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abf426b1-b2f3-4a06-b311-c1430aaba2c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/loanManagement/templates/users/usermodel_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0002_auto_20190112_0635.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0003_transactions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0004_auto_20190114_1930.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0005_auto_20190114_1934.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0006_auto_20190114_1936.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0007_userprofile_full_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0008_auto_20190117_2043.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0009_auto_20190119_1010.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0010_userprofile_username.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0011_auto_20190119_1017.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0012_auto_20190120_1855.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0013_remove_transactions_account_no.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0014_auto_20190120_1914.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0015_userprofile_balance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0016_auto_20190123_1544.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/0017_remove_userprofile_account_no.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/static/accounts/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/account_details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/success1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/accounts/transaction.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loanManagement/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loanManagement/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/loanManagement/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loanManagement/loanManagement/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/loanManagement/loanManagement/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loanManagement/loanManagement/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/loanManagement/loanManagement/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/loanManagement/accounts/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/loanManagement/accounts/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/loanManagement/accounts/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanManagement/users/views.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,18 +66,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loanManagement/users/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="78" column="8" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loanManagement/loanManagement/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-593">
@@ -52,32 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/loanManagement/templates/users/usermodel_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loanManagement/users/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loanManagement/users/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="14" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="44">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -100,10 +101,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="-1920" />
-    <option name="y" value="-143" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="x" value="-1930" />
+    <option name="y" value="-120" />
+    <option name="width" value="1680" />
+    <option name="height" value="1002" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -127,25 +128,6 @@
               <item name="LoanManagment" type="462c0819:PsiDirectoryNode" />
               <item name="loanManagement" type="462c0819:PsiDirectoryNode" />
               <item name="loanManagement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoanManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoanManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="loanManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoanManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoanManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="loanManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="LoanManagment" type="b2602c69:ProjectViewProjectNode" />
-              <item name="LoanManagment" type="462c0819:PsiDirectoryNode" />
-              <item name="loanManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -186,14 +168,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-143" width="1920" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24960506" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24960506" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32928064" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32928064" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -264,8 +245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/loanManagement/templates/users/usermodel_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        <state relative-caret-position="44">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
