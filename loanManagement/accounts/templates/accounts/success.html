@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    <p>User <b>{{user.username}}</b> is logged in successfully.</p>
+    <h1 style="color:#7AD7F0;">User {{user.username}} is logged in successfully.</h1>
     <form method="POST" action="/logout/">
         {% csrf_token %}
         <input type="submit" value="Logout">
