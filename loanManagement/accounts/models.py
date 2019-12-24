@@ -54,7 +54,22 @@ class UserProfile(AbstractUser):
     class Meta:
         db_table = "users"
 
+# admin can create bank customer
+#bank customer (to whom loan will give loan)
+class BankCustomer(models.Model):
+    account_no = models.CharField(max_length=150, unique=True, default="")
+    full_name = models.CharField(max_length=50, default="", blank=False)
+    birth_date = models.DateField(null=True, blank=True)
+    email = models.EmailField(unique=True, blank=False)
+    contact_no = models.IntegerField(unique=True, null=True)
+    Address = models.CharField(max_length=512)
+    city = models.CharField(max_length=256)
+    country = models.CharField(max_length=256)
+    nationality = models.CharField(max_length=256)
+    occupation = models.CharField(max_length=256)
 
+    def __str__(self):
+        return self.account_no + " : " + self.full_name
 # class Accounts(models.Model):
 #     user= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
 #     balance = models.DecimalField(
