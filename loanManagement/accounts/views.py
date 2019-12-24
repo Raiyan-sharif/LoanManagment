@@ -201,10 +201,13 @@ def account_details(request):
 
 
 
-class ListOfEquipment(ListView):
+class ListOfBankCustomer(ListView):
     model = BankCustomer
     template_name = 'accounts/customer_list.html'
 
+class BankCustomerDetail(DetailView):
+    model = BankCustomer
+    template_name = 'accounts/customer_details.html'
 #
 # def transact(request):
 #     if not request.user.is_authenticated:

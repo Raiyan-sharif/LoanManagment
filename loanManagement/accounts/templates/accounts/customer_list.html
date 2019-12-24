@@ -7,7 +7,10 @@
     {% csrf_token %}
     {% if request.user.is_authenticated %}
     {% for customer in object_list %}
-    <a href="#">account : {{customer}}</a>
+<!--    href="pk=customer.pk "-->
+    <h3>account {{customer.pk}}.{{customer.full_name}}  {{customer.birth_date}}  {{customer.email}}
+        {{customer.contact_no}}  {{customer.occupation}}  {{customer.monthly_income}} <a href="{% url 'customer_details' pk=customer.pk %}">Details</a> <a >Create Loan</a></h3>
+    <br>
     {% endfor %}
     {% else %}
 

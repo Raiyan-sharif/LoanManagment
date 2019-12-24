@@ -18,9 +18,6 @@ GENDER_OPTION = (
 )
 
 class UserProfile(AbstractUser):
-    # first_name = None
-    # last_name = None
-
     username = models.CharField('username', max_length=150, unique=True, default="")
     full_name= models.CharField(max_length=50, default="",blank= False)
     password= models.CharField(max_length=50,blank=False, default="")
@@ -71,6 +68,20 @@ class BankCustomer(models.Model):
 
     def __str__(self):
         return self.account_no + " : " + self.full_name
+
+
+class LoanModel(models.Model):
+    customer_id = models.ForeignKey(BankCustomer, on_delete=models.CASCADE, blank=True, null=True,)
+    loan_amount = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
+    loan_period = models.IntegerField(null=True, blank=True, default=0)
+    loan_status = models.BooleanField(default=False)
+    loan_installment_amount = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
+    loan_interest_rate = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
+    net_payable_amount = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
+
+    def __str__(self):
+        return self.pk + " " + self.customer_id + " " + self.loan_amount
+
 
 # class Accounts(models.Model):
 #     user= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
