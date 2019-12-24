@@ -61,12 +61,13 @@ class BankCustomer(models.Model):
     full_name = models.CharField(max_length=50, default="", blank=False)
     birth_date = models.DateField(null=True, blank=True)
     email = models.EmailField(unique=True, blank=False)
-    contact_no = models.IntegerField(unique=True, null=True)
+    contact_no = models.CharField(unique=True, null=True, blank=True, max_length=20)
     Address = models.CharField(max_length=512)
     city = models.CharField(max_length=256)
     country = models.CharField(max_length=256)
     nationality = models.CharField(max_length=256)
     occupation = models.CharField(max_length=256)
+    monthly_income = models.CharField(max_length=30)
 
     def __str__(self):
         return self.account_no + " : " + self.full_name
