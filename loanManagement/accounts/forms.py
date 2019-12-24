@@ -2,11 +2,16 @@ from django import forms
 from django.db import models
 from accounts.models import UserProfile
 from accounts.models import Transactions
+from accounts.models import BankCustomer
 import datetime
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 # from django.forms.extras.widgets import SelectDateWidget
+class BankCustomerForm(forms.ModelForm):
+    class Meta:
+        models = BankCustomer
+        fields = "__all__"
 
 class UserForm(forms.ModelForm):
     class Meta:

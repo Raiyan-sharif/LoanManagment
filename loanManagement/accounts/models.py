@@ -70,6 +70,7 @@ class BankCustomer(models.Model):
 
     def __str__(self):
         return self.account_no + " : " + self.full_name
+
 # class Accounts(models.Model):
 #     user= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
 #     balance = models.DecimalField(

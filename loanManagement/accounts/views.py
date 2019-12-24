@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from accounts.forms import UserForm
 from accounts.models import UserProfile
 from accounts.models import Transactions
-
+from accounts.models import BankCustomer
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 # Create your views here.
 from django.contrib.auth import authenticate
 from django.shortcuts import render, get_object_or_404
@@ -26,6 +28,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserRegistrationForm
 from .forms import Deposit_form
 from .forms import Withdrawl_form
+from .forms import BankCustomerForm
 from .models import User
 
 
@@ -198,7 +201,9 @@ def account_details(request):
 
 
 
-
+class ListOfEquipment(ListView):
+    model = BankCustomer
+    template_name = 'accounts/customer_list.html'
 
 #
 # def transact(request):
