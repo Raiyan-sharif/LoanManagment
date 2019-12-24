@@ -8,10 +8,14 @@ from django.core.validators import (
 from decimal import Decimal
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
+from django.db.models.signals import pre_save
 
 
-
-
+GENDER_OPTION = (
+    ('M', 'Male'),
+    ('F', 'Female'),
+    ('O', 'Other')
+)
 
 class UserProfile(AbstractUser):
     # first_name = None
@@ -86,3 +90,19 @@ class Transactions(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return str(self.amount)
+
+
+class CustomerAccount(models.Model):
+    account_number = models.CharField('account number', max_length=20, unique=True, default="")
+    account_holder_name = models.CharField('username', max_length=150, unique=False, default="")
+    birth_day = models.DateField(null=True, blank=True)
+    gender = models.CharField(max_length=1, choices=GENDER_OPTION, default="Male")
+    address = models.CharField(max_length=512)
+    contact_no = models.IntegerField(unique=True, null=True)
+    loan_ammount = models.DecimalField(decimal_places=2, max_digits=12, null=True, blank=True)
+    interest_rate = models.DecimalField(decimal_places=2, max_digits=12, null=True, blank=True)
+    loan_period = models.IntegerField()
+    balance = models.IntegerField(null=True,blank=True, default=0)
+    # payable_amount
+    def getpayable_amout(self):
+        return self.loan_ammount * (1+ self.interest_rate/4)**(4*(self.loan_period/12))

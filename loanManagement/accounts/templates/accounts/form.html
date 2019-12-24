@@ -5,6 +5,9 @@
 <h2>{{ title }}</h2><hr>
 <form method="POST" action="" enctype='multipart/form-data'>
     {% csrf_token %}
+    {% if request.user.is_authenticated %}
+      {{form.as_p}}
+    {% else %}
     <div class="createAc">
         <table>
           <tr>
@@ -54,9 +57,10 @@
           <tr>
             <td>Password confirmation:</td>
             <td>{{form.password2}}</td>
-  </tr>
-</table>
+        </tr>
+      </table>
     </div>
+     {% endif %}
     <br>
     <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Submit'>
 </form>

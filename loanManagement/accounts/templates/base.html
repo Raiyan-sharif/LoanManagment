@@ -70,10 +70,10 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="/">Home</a></li>
         {% if request.user.is_authenticated %}
-        <li><a href="{% url 'user_logout' %}">Logout</a></li>
-        <li><a href="{% url 'account_details' %}">Load Account Details</a></li>
-        <li><a href="{% url 'deposit' %}">Deposit</a></li>
-        <li><a href="{% url 'withdrawl' %}">Withdrawl</a></li>
+            <li><a href="{% url 'account_details' %}">Load Account Details</a></li>
+            <li><a href="{% url 'deposit' %}">Deposit</a></li>
+            <li><a href="{% url 'withdrawl' %}">Withdrawl</a></li>
+            <li><a href="{% url 'user_logout' %}">Logout</a></li>
         {% else %}
         <li><a href="{% url 'user_login' %}">Login </a></li>
 
