@@ -55,6 +55,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         {% load static %}
+
         <!--<link rel="stylesheet" href="{% static 'accounts/style.css' %}" type="text/css">-->
         {% block head%}
 
@@ -74,7 +75,10 @@
             <li><a href="{% url 'deposit' %}">Deposit</a></li>
             <li><a href="{% url 'withdrawl' %}">Withdrawl</a></li>
             <li><a href="{% url 'customer_list' %}">Customer</a></li>
+            <li><a href="{% url 'loan_create' %}">Create Loan</a></li>
             <li><a href="{% url 'user_logout' %}">Logout</a></li>
+            <li><a href="{% url 'customer_loan_list' %}">Loan List</a></li>
+
         {% else %}
         <li><a href="{% url 'user_login' %}">Login </a></li>
 

@@ -15,7 +15,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from decimal import Decimal
-
+from django.http import HttpResponse
+from django import template
+register = template.Library()
 
 
 
@@ -94,6 +96,20 @@ def user_logout(request):
 #         context = {"title": title, "form": form}
 #
 #         return render(request, "accounts/form.html", context)
+
+# @register.filter
+# def div( value, arg ):
+#     '''
+#     Divides the value; argument is the divisor.
+#     Returns empty string on any error.
+#     '''
+#     try:
+#         value = int( value )
+#         arg = int( arg )
+#         print(value / arg)
+#         if arg: return value / arg
+#     except: pass
+#     return ''
 
 
 def register_view(request):  
@@ -207,12 +223,35 @@ def account_details(request):
 class ListOfBankCustomer(ListView):
     model = BankCustomer
     template_name = 'accounts/customer_list.html'
+    # context_object_name = 'my_favorite_publishers'
+    def render_to_response(self, context, **response_kwargs):
+        """
+        Return a response, using the `response_class` for this view, with a
+        template rendered with the given context.
+        Pass response_kwargs to the constructor of the response class.
+        """
+        context['title'] = "List of Customer Account"
+        context['l'] = BankCustomer.objects.all()
+        response_kwargs.setdefault('content_type', self.content_type)
+        return self.response_class(
+            request=self.request,
+            template=self.get_template_names(),
+            context=context,
+            using=self.template_engine,
+            **response_kwargs
+        )
+
+
 
 class BankCustomerDetail(DetailView):
     model = BankCustomer
     template_name = 'accounts/customer_details.html'
 
 
+
+class CustomerLoanListView(ListView):
+    model = LoanModel
+    template_name = 'accounts/customer_loan_list.html'
 
 
 
@@ -223,13 +262,17 @@ class CustomerLoan(CreateView):
     # success_url = reverse_lazy('/')
     form_class = LoanForm
     template_name = 'accounts/loan_create.html'
-
+    print("ok")
     def get(self, request):
+        print(self.content_type)
+        print(request.POST)
         form = self.form_class
         context = {'form': form,}
         return render(request, self.template_name, context)
 
     def post(self, request):
+        # print(self.GET)
+        print(request.POST)
         form = self.form_class(request.POST)
         if form.is_valid():
             loan = form.save(commit=False)
