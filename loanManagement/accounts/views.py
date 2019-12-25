@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from accounts.forms import UserForm, LoanForm
+from accounts.forms import UserForm, LoanForm, DisbursementForm, InstallmentAmount
 from accounts.models import UserProfile
 from accounts.models import Transactions
 from accounts.models import BankCustomer, LoanModel
@@ -259,8 +259,6 @@ class CustomerLoanListView(ListView):
 
 
 
-
-
 class CustomerLoan(CreateView):
     # success_url = reverse_lazy('/')
     form_class = LoanForm
@@ -293,7 +291,23 @@ class CustomerLoan(CreateView):
             loan.loan_installment_amount = net_payable_amount/loan_period
             loan.save()
 
-        return render(request,self.template_name, {'form': form,})
+        return render(request, self.template_name, {'form': form,})
+
+
+class DisbursingView(UpdateView):
+    form_class = DisbursementForm
+    model = LoanModel
+    template_name = "accounts/disbursement.html"
+    success_url = reverse_lazy('customer_loan_list')
+
+class InstallmentAmountView(UpdateView):
+    form_class = InstallmentAmount
+    model = LoanModel
+    template_name = "accounts/installment.html"
+    success_url = reverse_lazy('customer_loan_list')
+
+
+
 
 #
 # def transact(request):

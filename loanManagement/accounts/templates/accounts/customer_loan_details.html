@@ -3,7 +3,7 @@
 
 {% block content %}
 <h2>{{ title }}</h2><hr>
-<form method="POST" action="" enctype='multipart/form-data'>
+<form method="POST" action="{% url 'disburse' pk=object.pk %}" enctype='multipart/form-data'>
     {% csrf_token %}
     {% if request.user.is_authenticated %}
      {% if object.loan_status %}
@@ -12,6 +12,12 @@
       {{object.loan_installment_amount}}<br>
       {{object.loan_interest_rate}}<br>
       {{object.net_payable_amount}}<br>
+    {% if object.disbursement_status %}
+        <a href="{% url 'installment' pk=object.pk %}">Pay Installment</a>
+    {% else %}
+<!--    <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Disburse Now'>-->
+    <a href="{% url 'disburse' pk=object.pk %}">Disburse Now</a>
+    {% endif %}
     {% else %}
       <h1>Admin Request Pending</h1>
     {% endif %}

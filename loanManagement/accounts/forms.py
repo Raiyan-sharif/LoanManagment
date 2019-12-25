@@ -72,3 +72,14 @@ class LoanForm(forms.ModelForm):
     class Meta:
         model = LoanModel
         fields = ['customer_id','loan_amount', 'loan_period', 'loan_interest_rate']
+
+class DisbursementForm(forms.ModelForm):
+    class Meta:
+        model = LoanModel
+        fields = ['id','disbursement_status','account_balance','net_payable_amount']
+        # email = forms.CharField(disabled=True)
+
+class InstallmentAmount(forms.ModelForm):
+    class Meta:
+        model = LoanModel
+        fields = ['id','loan_installment_amount','account_balance']

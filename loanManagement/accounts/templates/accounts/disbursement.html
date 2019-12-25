@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h2>{{ title }}</h2><hr>
+<form method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {% if request.user.is_authenticated %}
+    <form method='POST' enctype="multipart/form-data">{% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Update">
+    </form>
+    {% else %}
+
+     {% endif %}
+</form>
+{% endblock content %}
