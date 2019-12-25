@@ -248,6 +248,9 @@ class BankCustomerDetail(DetailView):
     template_name = 'accounts/customer_details.html'
 
 
+class CustomerLoanDetail(DetailView):
+    model = LoanModel
+    template_name = 'accounts/customer_loan_details.html'
 
 class CustomerLoanListView(ListView):
     model = LoanModel
@@ -263,6 +266,7 @@ class CustomerLoan(CreateView):
     form_class = LoanForm
     template_name = 'accounts/loan_create.html'
     print("ok")
+
     def get(self, request):
         print(self.content_type)
         print(request.POST)
@@ -289,7 +293,7 @@ class CustomerLoan(CreateView):
             loan.loan_installment_amount = net_payable_amount/loan_period
             loan.save()
 
-        return render(request, self.template_name, {'form': form,})
+        return render(request,self.template_name, {'form': form,})
 
 #
 # def transact(request):

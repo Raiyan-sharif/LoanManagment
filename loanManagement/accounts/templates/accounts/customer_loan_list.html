@@ -3,13 +3,13 @@
 
 {% block content %}
 <h2>{{ title }}</h2><hr>
-<form method="POST" action="" enctype='multipart/form-data'>
+<form method="POST" action="/" enctype='multipart/form-data'>
     {% csrf_token %}
     {% if request.user.is_authenticated %}
     {% with name=0.0 %}
     {% for customer in object_list %}
 <!--    href="pk=customer.pk "LoanModel-->
-    <h3>customer {{customer.pk}}.{{customer}} </h3>
+    <h3>customer {{customer.pk}}.{{customer}} <a href="{% url 'customer_loan_details' pk=customer.pk %}">Details</a></h3>
     <br>
     {% endfor %}
     {% endwith %}

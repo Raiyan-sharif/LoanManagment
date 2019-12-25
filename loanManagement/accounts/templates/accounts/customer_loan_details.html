@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h2>{{ title }}</h2><hr>
+<form method="POST" action="" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {% if request.user.is_authenticated %}
+     {% if object.loan_status %}
+      {{object.customer_id}}<br>
+      {{object.loan_amount}}<br>
+      {{object.loan_installment_amount}}<br>
+      {{object.loan_interest_rate}}<br>
+      {{object.net_payable_amount}}<br>
+    {% else %}
+      <h1>Admin Request Pending</h1>
+    {% endif %}
+    {% else %}
+
+     {% endif %}
+</form>
+{% endblock content %}

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from accounts.views import (user_login, user_logout,
     success, home, account_details, register_view, deposit,withdrawl, ListOfBankCustomer, BankCustomerDetail,
-                            CustomerLoan, CustomerLoanListView)
+                            CustomerLoan, CustomerLoanListView,CustomerLoanDetail)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,5 +34,6 @@ urlpatterns = [
     path('customer_details/<int:pk>/', BankCustomerDetail.as_view(), name='customer_details'),
     path('create_loan/', CustomerLoan.as_view(), name='loan_create'),
     path('customer_loan_list/',CustomerLoanListView.as_view(), name='customer_loan_list'),
+    path('customer_loan_details/<int:pk>/',CustomerLoanDetail.as_view(), name='customer_loan_details'),
     # path('transact/', transact, name="transact"),
 ]

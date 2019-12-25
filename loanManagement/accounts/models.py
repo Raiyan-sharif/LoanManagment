@@ -79,11 +79,14 @@ class LoanModel(models.Model):
     loan_installment_amount = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
     loan_interest_rate = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
     net_payable_amount = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
+    disbursement_status = models.BooleanField(default=False)
+    account_balance = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
 
     def __str__(self):
-        return str(self.pk) + " " + str(self.customer_id) + " " + str(self.loan_amount)
+        return str(self.customer_id) + " " + str(self.loan_amount)
 
-
+# class LoanAccountBalance(models.Model):
+#     customer_id = models.ForeignKey(LoanModel, on_delete=models.CASCADE, blank=True, null=True, )
 # class Accounts(models.Model):
 #     user= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
 #     balance = models.DecimalField(
