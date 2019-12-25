@@ -2,7 +2,7 @@ from django import forms
 from django.db import models
 from accounts.models import UserProfile
 from accounts.models import Transactions
-from accounts.models import BankCustomer
+from accounts.models import BankCustomer, LoanModel
 import datetime
 from django import forms
 from django.contrib.auth import authenticate
@@ -67,3 +67,8 @@ class Withdrawl_form(forms.ModelForm):
         fields = [
             'amount'
         ]
+
+class LoanForm(forms.ModelForm):
+    class Meta:
+        model = LoanModel
+        fields = ['customer_id','loan_amount', 'loan_period', 'loan_interest_rate']

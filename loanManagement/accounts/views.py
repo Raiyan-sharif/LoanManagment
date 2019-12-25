@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
-from accounts.forms import UserForm
+from accounts.forms import UserForm, LoanForm
 from accounts.models import UserProfile
 from accounts.models import Transactions
-from accounts.models import BankCustomer
+from accounts.models import BankCustomer, LoanModel
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 # Create your views here.
@@ -12,6 +14,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from decimal import Decimal
 
 
 
@@ -208,6 +211,43 @@ class ListOfBankCustomer(ListView):
 class BankCustomerDetail(DetailView):
     model = BankCustomer
     template_name = 'accounts/customer_details.html'
+
+
+
+
+
+
+
+
+class CustomerLoan(CreateView):
+    # success_url = reverse_lazy('/')
+    form_class = LoanForm
+    template_name = 'accounts/loan_create.html'
+
+    def get(self, request):
+        form = self.form_class
+        context = {'form': form,}
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            loan = form.save(commit=False)
+            # password = user_form.cleaned_data['password1']
+            loan_amount = Decimal(request.POST['loan_amount'])
+            loan_period = Decimal(request.POST['loan_period'])
+            loan_interest_rate = Decimal(request.POST['loan_interest_rate'])
+            # playerobj = CustomerLoan.objects.filter(user=self.request.params)
+            loan.loan_amount = loan_amount
+            loan.loan_period = loan_period
+            loan.loan_interest_rate = loan_interest_rate
+            net_payable_amount = loan_amount * ((1 + (loan_interest_rate/400))**(4*loan_period/12))
+            loan.net_payable_amount = net_payable_amount
+            loan.loan_installment_amount = net_payable_amount/loan_period
+            loan.save()
+
+        return render(request, self.template_name, {'form': form,})
+
 #
 # def transact(request):
 #     if not request.user.is_authenticated:

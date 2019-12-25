@@ -7,9 +7,9 @@
     {% csrf_token %}
     {% if request.user.is_authenticated %}
     {% for customer in object_list %}
-<!--    href="pk=customer.pk "-->
+<!--    href="pk=customer.pk "LoanModel-->
     <h3>account {{customer.pk}}.{{customer.full_name}}  {{customer.birth_date}}  {{customer.email}}
-        {{customer.contact_no}}  {{customer.occupation}}  {{customer.monthly_income}} <a href="{% url 'customer_details' pk=customer.pk %}">Details</a> <a >Create Loan</a></h3>
+        {{customer.contact_no}}  {{customer.occupation}}  {{customer.monthly_income}} <a href="{% url 'customer_details' pk=customer.pk %}">Details</a> <a href= "{% url 'loan_create' %}">Create Loan</a></h3>
     <br>
     {% endfor %}
     {% else %}

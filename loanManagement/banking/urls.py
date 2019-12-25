@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from accounts.views import (user_login, user_logout,
-    success, home, account_details, register_view, deposit,withdrawl, ListOfBankCustomer, BankCustomerDetail)
+    success, home, account_details, register_view, deposit,withdrawl, ListOfBankCustomer, BankCustomerDetail,
+                            CustomerLoan)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,5 +32,6 @@ urlpatterns = [
     path('withdrawl/',withdrawl, name= 'withdrawl'),
     path('customer_list/',ListOfBankCustomer.as_view(),name='customer_list'),
     path('customer_details/<int:pk>/', BankCustomerDetail.as_view(), name='customer_details'),
+    path('create_loan/', CustomerLoan.as_view(), name='loan_create'),
     # path('transact/', transact, name="transact"),
 ]

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h2>{{ title }}</h2><hr>
+<form method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {% if request.user.is_authenticated %}
+
+    {{form.as_p}}
+    <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Submit'>
+    {% else %}
+
+     {% endif %}
+</form>
+{% endblock content %}

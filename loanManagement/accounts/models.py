@@ -70,6 +70,7 @@ class BankCustomer(models.Model):
         return self.account_no + " : " + self.full_name
 
 
+#Loan Model
 class LoanModel(models.Model):
     customer_id = models.ForeignKey(BankCustomer, on_delete=models.CASCADE, blank=True, null=True,)
     loan_amount = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
@@ -80,7 +81,7 @@ class LoanModel(models.Model):
     net_payable_amount = models.DecimalField(null=True, blank=True, default=0.0, max_digits=30, decimal_places=2)
 
     def __str__(self):
-        return self.pk + " " + self.customer_id + " " + self.loan_amount
+        return str(self.pk) + " " + str(self.customer_id) + " " + str(self.loan_amount)
 
 
 # class Accounts(models.Model):
