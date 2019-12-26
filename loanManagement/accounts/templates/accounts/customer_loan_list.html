@@ -1,20 +1,29 @@
 {% extends 'base.html' %}
-{% load mathfilters %}
 
 {% block content %}
-<h2>{{ title }}</h2><hr>
+<h2 style="color: #7AD7F0; font-family: times, serif; font-style:italic;">{{ title }}</h2><hr>
+<table >
+    <th>ID</th>
+    <th>Account Number: Full Name: Loan amount</th>
+    <th>Action</th>
 <form method="POST" action="/" enctype='multipart/form-data'>
     {% csrf_token %}
     {% if request.user.is_authenticated %}
     {% with name=0.0 %}
     {% for customer in object_list %}
 <!--    href="pk=customer.pk "LoanModel-->
-    <h3>customer {{customer.pk}}.{{customer}} <a href="{% url 'customer_loan_details' pk=customer.pk %}">Details</a></h3>
-    <br>
+    <tr>
+        <td>{{customer.pk}}</td>
+        <td>{{customer}}</td>
+        <td> <a href="{% url 'customer_loan_details' pk=customer.pk %}">Details</a></td>
+    </tr>
+
+
     {% endfor %}
     {% endwith %}
     {% else %}
 
      {% endif %}
 </form>
+</table>
 {% endblock content %}

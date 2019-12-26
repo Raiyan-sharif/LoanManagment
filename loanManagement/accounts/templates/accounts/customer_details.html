@@ -3,22 +3,74 @@
 
 {% block content %}
 <h2>{{ title }}</h2><hr>
+<head>
+    <style>
+    table{
+        width: 80%;
+
+    }
+    td{
+        background-color:#7AD7F0;
+        color: white;
+        font-family: times, serif; font-style:italic;
+        font-size: 25px;
+    }
+    </style>
+</head>
 <form method="POST" action="" enctype='multipart/form-data'>
     {% csrf_token %}
     {% if request.user.is_authenticated %}
-     <p>{{object.pk}}
-         <br>{{object.account_no}}
-         <br>{{object.full_name}}
-         <br>{{object.birth_date}}
-         <br>{{object.email}}
-         <br>{{object.contact_no}}
-         <br>{{object.occupation}}
-         <br>{{object.monthly_income}}
-         <br>{{object.country}}
-         <br>{{object.nationality}}
-         <br>{{object.city}}
-         <br>{{object.Address}}
-         <br>{{object.monthly_income}}
+    <h1 style="color: #7AD7F0; font-family: times, serif; font-style:italic;">Account details of, {{object.full_name}}</h1>
+        <table>
+        <tr>
+            <td>Id: </td>
+            <td>{{object.pk}}</td>
+        </tr>
+        <tr>
+            <td>Account No: </td>
+            <td>{{object.account_no}}</td>
+        </tr>
+        <tr>
+            <td>Birth Date</td>
+            <td>{{object.birth_date}}</td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>{{object.email}}</td>
+        </tr>
+        <tr>
+            <td>Contact No: </td>
+            <td>{{object.contact_no}}</td>
+        </tr>
+        <tr>
+            <td>Occupation: </td>
+            <td>{{object.occupation}}</td>
+        </tr>
+        <tr>
+            <td>Monthly Income: </td>
+            <td>{{object.monthly_income}}</td>
+        </tr>
+        <tr>
+            <td>Country: </td>
+            <td>{{object.country}}</td>
+        </tr>
+        <tr>
+            <td>City: </td>
+            <td>{{object.city}}</td>
+        </tr>
+        <tr>
+            <td>Nationality: </td>
+            <td>{{object.nationality}}</td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td>{{object.Address}}</td>
+        </tr>
+        <tr>
+            <td>Monthly Income: </td>
+            <td>{{object.monthly_income}}</td>
+        </tr>
+    </table>
     {% else %}
 
      {% endif %}

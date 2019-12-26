@@ -3,23 +3,40 @@
 
 {% block content %}
 <h2>{{ title }}</h2><hr>
+<head>
+    <style>
+    table{
+        width: 50%;
+
+    }
+    td{
+        background-color:#7AD7F0;
+        color: white;
+        font-family: times, serif; font-style:italic;
+        font-size: 25px;
+    }
+    </style>
+</head>
 <form method="POST" action="{% url 'disburse' pk=object.pk %}" enctype='multipart/form-data'>
     {% csrf_token %}
     {% if request.user.is_authenticated %}
      {% if object.loan_status %}
-      {{object.customer_id}}<br>
-      {{object.loan_amount}}<br>
-      {{object.loan_installment_amount}}<br>
-      {{object.loan_interest_rate}}<br>
-      {{object.net_payable_amount}}<br>
+    <h1 style="color: #7AD7F0; font-family: times, serif; font-style:italic;">Loan details of Customer Id No:{{object.customer_id}}</h1>
+        <table>
+        <tr>
+            <td>Loan Amount: </td><td>{{object.loan_amount}}</td> </tr>
+            <tr><td>Loan Installment Amount: </td><td>{{object.loan_installment_amount}}</td> </tr>
+          <tr>  <td>Loan Interest Rate: </td><td>{{object.loan_interest_rate}}</td> </tr>
+            <tr><td>Loan Net Payable Amount: </td><td>{{object.net_payable_amount}}</td></tr>
     {% if object.disbursement_status %}
-        <a href="{% url 'installment' pk=object.pk %}">Pay Installment</a>
+            <tr>
+            <td colspan="2"><a href="{% url 'installment' pk=object.pk %}">Pay Installment</a></td> </tr>
     {% else %}
 <!--    <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Disburse Now'>-->
-    <a href="{% url 'disburse' pk=object.pk %}">Disburse Now</a>
+            <tr> <td colspan="2"> <a href="{% url 'disburse' pk=object.pk %}">Disburse Now</a> </td> </tr> </table>
     {% endif %}
     {% else %}
-      <h1>Admin Request Pending</h1>
+      <h1 style="background-color:#7AD7F0;">Admin Request Pending</h1>
     {% endif %}
     {% else %}
 

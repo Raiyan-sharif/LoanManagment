@@ -2,18 +2,43 @@
 
 
 {% block content %}
-<h2>{{ title }}</h2><hr>
+<h2 style="color: #7AD7F0; font-family: times, serif; font-style:italic;">{{ title }}</h2><hr>
+<table >
+    <th>ID</th>
+    <th>Full Name</th>
+    <th>Birth Date</th>
+    <th>Email</th>
+    <th>Contact No</th>
+    <th>Occupation</th>
+    <th>Monthly Income</th>
+    <th>Action</th>
 <form method="POST" action="" enctype='multipart/form-data'>
     {% csrf_token %}
     {% if request.user.is_authenticated %}
     {% for customer in object_list %}
 <!--    href="pk=customer.pk "LoanModel-->
-    <h3>account {{customer.pk}}.{{customer.full_name}}  {{customer.birth_date}}  {{customer.email}}
-        {{customer.contact_no}}  {{customer.occupation}}  {{customer.monthly_income}} <a href="{% url 'customer_details' pk=customer.pk %}">Details</a></h3>
-    <br>
+    <tr>
+        <td>{{customer.pk}}</td>
+
+        <td>{{customer.full_name}}</td>
+
+        <td>{{customer.birth_date}}</td>
+
+        <td>{{customer.email}}</td>
+
+        <td>{{customer.contact_no}}</td>
+
+        <td>{{customer.occupation}}</td>
+
+        <td>{{customer.monthly_income}}</td>
+
+        <td><a href="{% url 'customer_details' pk=customer.pk %}">Details</a></td>
+    </tr>
+
     {% endfor %}
     {% else %}
 
      {% endif %}
 </form>
+</table>
 {% endblock content %}
