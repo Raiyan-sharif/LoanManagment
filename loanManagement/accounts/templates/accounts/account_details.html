@@ -2,30 +2,39 @@
 
 
     {% block content %}
-
+<head>
+    <style>
+    table{
+        width: 100%;
+        margin-left: 230px;
+    }
+    td{
+        background-color:#7AD7F0;
+        color: black;
+        font-family: times, serif; font-style:italic;
+        font-size: 30px;
+    }
+    </style>
+</head>
 
     <div class="page-header">
-      <h1 class="text-center"><small>Loan Management System</small></h1>
+      <h2 class="text-center"style="color: #7AD7F0; font-family: times, serif; font-style:italic;">Manager Account Details</h2>
     </div>
 
 <div class="row">
 
   <div class="col-xs-12 col-md-8 text-left">
-    <h4><b>Account Name: </b>{{ user.full_name }}</h4>
-    <h4><b>Date of Birth: </b>{{ user.birth_date }}</h4>
-    <h4><b>Contact No: </b>{{ user.contact_no }}</h4>
-    <h4><b>Email Address: </b>{{ user.email }}</h4>
-    <h4><b>Address: </b>{{ user.Address }}</h4>
-    <h4><b>Location: </b>{{ user.city }}, {{ user.country }}</h4>
-    <h4><b>Occupation: </b>{{ user.occupation }}</h4>
-  </div>
-  <div class="col-xs-6 col-md-4 text-left">
-    <h4><b>Account Created: </b>{{ user.date_joined|date:'d-m-Y' }}</h4>
-    <h4><b>Account No: </b>{{ user.account_no }}</h4><br><br>
-    <div class="well">
-    <h4 class="card"><b>Account Balance: </b>{{ user.balance }} ৳</h4>
-
-    </div>
+    <table>
+      <tr><td>Name: </td><td>{{ user.full_name }}</td></tr>
+      <tr><td>Date of Birth:  </td><td>{{ user.birth_date }}</td></tr>
+      <tr><td>Contact No: </td><td>{{ user.contact_no }}</td></tr>
+      <tr><td>Email Address: </td><td>{{ user.email }}</td></tr>
+      <tr><td>Address: </td><td>{{ user.Address }}</td></tr>
+      <tr><td>Country: </td><td>{{ user.country }}</td></tr>
+      <tr><td>City: </td><td>{{ user.city }}</td></tr>
+      <tr><td>Occupation: </td><td>{{ user.occupation }}</td></tr>
+      <tr><td>Account Created: </td><td>{{ user.date_joined|date:'d-m-Y' }}</td></tr>
+    </table>
   </div>
 
 </div>

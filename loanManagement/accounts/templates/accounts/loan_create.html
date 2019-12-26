@@ -2,16 +2,32 @@
 
 
 {% block content %}
-<h2>{{ title }}</h2><hr>
+<h2 style="color:#7AD7F0;">{{ title }}</h2><hr>
+<head>
+    <style>
+    table{
+        width: 40%;
+        box-shadow: 2px 3px;
+    }
+    td{
+        background-color:#7AD7F0;
+        color: black;
+        font-family: times, serif; font-style:italic;
+        font-size: 25px;
+    }
+    </style>
+</head>
 <form method="POST" enctype='multipart/form-data'>
+
     {% csrf_token %}
     {% if request.user.is_authenticated %}
-
-    <h1>customer_id: {{form.customer_id}}</h1>
-    <h1>loan_amount: {{form.loan_amount}}</h1>
-    <h1>loan_period: {{form.loan_period}}</h1>
-    <h1>loan_interest_rate: {{form.loan_interest_rate}}</h1>
-    <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Submit'>
+<table>
+    <tr><td>Customer Id:</td> <td>{{form.customer_id}}</td></tr>
+    <tr><td>Loan Amount:</td> <td>{{form.loan_amount}}</td></tr>
+    <tr><td>Loan Period:</td> <td>{{form.loan_period}}</td></tr>
+    <tr><td>Loan Interest Rate:</td> <td>{{form.loan_interest_rate}}</td></tr>
+</table>
+    <input style="margin-left:800px;" class="btn btn-info" type="submit" value='Submit'>
     {% else %}
 
      {% endif %}

@@ -2,15 +2,30 @@
 
 
 {% block content %}
-<h2>{{ title }}</h2><hr>
+<h2 style="color:#7AD7F0;">{{ title }}</h2><hr>
+<head>
+    <style>
+    table{
+        width: 40%;
+        box-shadow: 2px 3px;
+    }
+    td{
+        background-color:#7AD7F0;
+        color: black;
+        font-family: times, serif; font-style:italic;
+        font-size: 20px;
+    }
+    </style>
+</head>
 <form method="POST" enctype='multipart/form-data'>
+
     {% csrf_token %}
     {% if request.user.is_authenticated %}
-    <form method='POST' enctype="multipart/form-data">{% csrf_token %}
-        <h1>loan_installment_amount: {{form.loan_installment_amount}}</h1>
-        <h1>account_balance: {{form.account_balance}}</h1>
-            <input type="submit" value="Update">
-    </form>
+<table>
+    <tr><td>Loan Installment Amount:</td> <td><fieldset disabled="disabled">{{form.loan_installment_amount}}</fieldset></td></tr>
+    <tr><td>Loan Account Balance:</td> <td>{{form.account_balance}}</td></tr>
+</table>
+    <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Submit'>
     {% else %}
 
      {% endif %}

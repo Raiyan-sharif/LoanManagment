@@ -2,16 +2,31 @@
 
 
 {% block content %}
-<h2>{{ title }}</h2><hr>
+<h2 style="color:#7AD7F0;">{{ title }}</h2><hr>
+<head>
+    <style>
+    table{
+        width: 50%;
+        box-shadow: 2px 3px;
+    }
+    td{
+        background-color:#7AD7F0;
+        color: black;
+        font-family: times, serif; font-style:italic;
+        font-size: 25px;
+    }
+    </style>
+</head>
 <form method="POST" enctype='multipart/form-data'>
+
     {% csrf_token %}
     {% if request.user.is_authenticated %}
-    <form method='POST' enctype="multipart/form-data">{% csrf_token %}
-            <h1>account_balance: {{form.account_balance}}</h1>
-        <h1>disbursement_status: {{form.disbursement_status}}</h1>
-        <h1>net_payable_amount: {{form.net_payable_amount}}</h1>
-            <input type="submit" value="Update">
-    </form>
+<table>
+    <tr><td>Loan Disbursement Amount:</td>  <td><fieldset disabled="disabled">{{form.net_payable_amount}}</fieldset></td></tr>
+    <tr><td>Disbursement Status:</td> <td>{{form.disbursement_status}}</td></tr>
+    <tr><td>Add Balance to Account:</td> <td>{{form.account_balance}}</td></tr>
+</table>
+    <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Submit'>
     {% else %}
 
      {% endif %}
