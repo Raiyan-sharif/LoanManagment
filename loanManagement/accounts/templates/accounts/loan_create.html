@@ -7,7 +7,10 @@
     {% csrf_token %}
     {% if request.user.is_authenticated %}
 
-    {{form.as_p}}
+    <h1>customer_id: {{form.customer_id}}</h1>
+    <h1>loan_amount: {{form.loan_amount}}</h1>
+    <h1>loan_period: {{form.loan_period}}</h1>
+    <h1>loan_interest_rate: {{form.loan_interest_rate}}</h1>
     <input style="margin-left:600px;" class="btn btn-info" type="submit" value='Submit'>
     {% else %}
 

@@ -7,7 +7,9 @@
     {% csrf_token %}
     {% if request.user.is_authenticated %}
     <form method='POST' enctype="multipart/form-data">{% csrf_token %}
-            {{form.as_p}}
+            <h1>account_balance: {{form.account_balance}}</h1>
+        <h1>disbursement_status: {{form.disbursement_status}}</h1>
+        <h1>net_payable_amount: {{form.net_payable_amount}}</h1>
             <input type="submit" value="Update">
     </form>
     {% else %}
